@@ -1,4 +1,262 @@
 <!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .rubik-regular {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+    :root {
+        --bac : rgb(240,240,240) ;
+        --fonts : black ;
+    }
+    body {
+    background-image: url(pexels-robert-clark-504241532-20087252.jpg);   /* ضع رابط الصورة هنا */
+    background-size: cover;          /* تغطي الشاشة كاملة */
+    background-position: center;     /* تُركز الصورة */
+    background-repeat: no-repeat;    /* لا تتكرر */
+    background-attachment: fixed;    /* تبقى ثابتة عند التمرير (اختياري) */
+    min-height: 100vh;
+}
+    .divThree {
+        display: flex;
+        background-color: var(--bac);
+        align-items: self-start;
+        justify-content: center;
+        height: 150px;
+        border-radius: 0px 0px 30px 30px
+    }
+    .products-container {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: var(--bac);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.1rem;
+    }
+
+    .product-info p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: var(--fonts);
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #e91e63;
+      margin: 10px 0;
+    }
+    
+</style>
+<body>
+    <div style="margin: 20px 0px 0px 0px;">
+        <footer style="background:var(--bac); font-family: var(--family) ;color:var(--fonts); padding:30px 0; direction:rtl; text-align:center;border-radius: 30px;">
+        <div style="max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:30px; padding:0 20px;">
+            
+            <!-- اللوغو + الاسم (يمين) -->
+            <div style="display:flex; align-items:center; gap:15px;">
+            <img src="Untitled_design-removebg-preview.png" style="height:55px;background-color: transparent;border: none;padding: 0;">
+            <div>
+                <h2 class="rubik-regular"  style="margin:0; font-size:24px;"><b>السويدا.وورك</b></h2>
+                
+            </div>
+            </div>
+            
+            <!-- القائمة (يسار) -->
+            <div style="display:flex; gap:30px; flex-wrap:wrap; justify-content:center;">
+            developed by Wajed Faraj
+            </div>
+        </div>
+        <div style="border-top:1px solid #333; margin-top:40px; padding-top:20px; color:var(--fonts); font-size:25px; margin: 10p;">
+                منصة تحوي على العديد من فرص العمل بمختلف المجالات
+        </div>
+        <div style="font-size: 20px;">انت صاحب عمل و تريد ادراج اعلان , اضغط <a href="contact.html">هنا</a> </div>
+    </footer>
+    </div>
+    <div id = "work-footer" style="background-color: var(--bac);display: none;height: 80px;align-items: center;margin:20px; justify-content: center;border-radius: 30px;
+        ">
+    <b id ="aspect">عروض العمل المتعلقة  بمجال 
+    </b>
+    </div>
+    <div class="products-container" id="productsContainer"></div>
+
+    </div>
+    
+    <div id='divTwo'  style="max-width:1300px; margin: 40px 0px 0px 0px;font-size: 35px;justify-content: right; align-items:top;gap:30px;border-radius: 30px 30px 0px 0px ;height: 50px;padding: 20px;background-color: var(--bac);display: flex;;">
+    قم باختيار المجال بناءً على  المهارة او الخبرة
+    </div>
+    <div id='divThree' class="divThree">
+<form id="form"  style="display: flex;justify-content: center;width: 600px;">
+        <select  id="category" style="width: 60% ;height: 50px;" >
+        <option value="" selected></option>
+        <option value="tech" id ="tech">التكنولوجيا</option>
+        <option value="free" id="free">أعمال حرة (بناء ,ميكانيك , نجارة ، حدادة . . )</option>
+        <option value="elec" id ="elec">كهرباء , الكترونيات , طاقة متجددة</option>
+        <option value="health" id ="health">الصحة</option>
+        <option value="food" id="food">الطبخ و المأكولات</option>
+        <option value="manage" id="manage" >إدارة أعمال , خدمات مكتبية , محاسبة</option>
+        <option value="salon" id="salon">صالونات (تجميل , حلاقة , تاتو )</option>
+        <option value="teach" id="teach">التعليم</option>
+        <option value="sport" id="sport">الرياضة</option>
+        <option value="art" id="art">فنون / أعمال يدوية / التصميم</option>
+        <option value="no" id="no">بدون خبرة</option>
+        </select>
+</form>
+<script>
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.getElementById("divTwo").style.display = "block" ;
+        document.getElementById("form").style.margin = "100px 0px 700px 0px" ;        
+    };
+</script>
+
+</div>
+    <script>
+        //===============================================================================================================================
+        
+        const products = 
+        {
+        "tech":[{
+            loc: "السويداء/ دوار الملعب",
+            desc: "كاشير / ة\nخبرة عمل كاشير على برنامج البازار لا تقل عن  ٢ سنة \nوردية صباحية او مسائية \nالعمر بين  25 سنة و 40",
+            cont: "0955943026",
+        }],
+        "no":[{
+            loc: "كفر اللحف",
+            desc: "صبية للإقامة عند مسنين غير عاجزين",
+            cont: "0992254433"
+        },{
+            loc :"سليم",
+            desc : "عاملات لقسم التنظيف عدد 2 للعمل في المعمل (مخبز نينار)",
+            cont : "0953303501"
+        },{
+            loc :"سليم",
+            desc : "صبية للعمل في محل عصرونية وكهربائيات دوام صباحي",
+            cont : "0994241012"
+        },{
+            loc : "",
+            desc : "ندوب مبيعات لمستودع كوزمتك (مستلزمات طبية ومواد تجميل),يفضل خبرة بالمجال وقيادة دراجة نارية",
+            cont : "0938254555"
+
+        }],
+        "elec":[{}],
+        "health" :[{}],
+        "teach" :[{}],
+        "food" :[{}],
+        "manage" :[{
+            loc :"السويداء دوار الملعب",
+            desc : "خبرة  بالادارة يفضل خبرة عمل السناتر لا تقل عن ٥ سنوات\n وادارة الموظفين العمر بين ٣٠ سنة و ٤٥ سنة",
+            cont : "0955943026"
+        },{
+            loc : "السويداء دوار الملعب",
+            desc : "محاسب / ة يحمل شهادة تجارة واقتصاد \nخبرة العمل على برنامج البازر حصرا لا تقل عن ٣سنوات \nالعمر بين ٢٥ سنة و ٤٠ سنة\n فترة العمل صباحية",
+            cont : "0955943026"
+        }],
+        "salon" :[{
+            loc:"السويداء/ جانب سيرياتيل",
+            desc : "مدرب حلاقة رجالي",
+            cont: "0991492262"
+        }],
+        "sport" :[{}],
+        "art" :[{
+            loc : "السويداء",
+            desc : "شباب وصبايا لتأدية أدوار في حلقات قصيرة (سيتكوم)\n-المؤهلات:\n1-العمر من 20 إلى 25 \n2-أن يتوفر خبرة لا تقل عن ثلاث سنوات وتجارب سابقة",
+            cont : "0968788926"
+        }],
+        "free" :[{}],
+        };
+        let aspect = document.getElementById("aspect")
+        let dTwo = document.getElementById("divTwo")
+        let dThree = document.getElementById("divThree")
+        const b = document.getElementById("category")
+        let workFooter=document.getElementById("work-footer")
+        
+
+
+        b.addEventListener('change' , () => {
+            const b = document.getElementById("category")
+            let y = products[b.value]
+            dTwo.style.display = "none";
+            dThree.style.display = "none";
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = '';
+            document.getElementById("back-div").style.display = "flex"
+            y.forEach(product => {
+            const cardHTML = `
+            <div class="product-card">
+                <div class="product-info">
+                <h3>${product.loc}</h3>
+                <p>${product.desc}</p>
+                <a href="tel:${product.cont}" class="price"> للتواصل ${product.cont} </a>
+                <!-- أضف هنا أي تفاصيل إضافية تريدها -->
+                </div>
+            </div>
+            `
+            
+            ;
+            container.innerHTML += cardHTML;
+            container.style.display = "grid"
+            workFooter.style.display = "flex"
+            
+            });
+            let op =document.getElementById(b.value)
+            aspect.textContent = `  عروض العمل المتعلقة بمجال ${op.innerText}`
+            }
+            )
+
+        
+        //================================================================================================================================
+        
+                
+    </script>
+    <div style="display: flex;justify-content: center;align-items: center;margin: 10px 0px 0px 0px;font-size: 25px;height: 80px; width: auto;border-radius: 30px;background-color: rgb(240,240,240,0);">
+        <div id="back-div"  style="display: none;justify-content: center;align-items: center;font-size: 25px;height: 80px; width: 80px;border-radius: 30px;background-color: rgb(240,240,240);">
+                    <a style="color: #551a8b;" href="javascript:location.reload()   ">رجوع</a>
+
+        </div>
+    </div>
+</body>
+
+</html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
