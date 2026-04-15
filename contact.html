@@ -1,46 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl"><!--    justify-content: right;-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    .main-div {
-  display: flex;
-  height: auto;
-  width: auto;
-  align-items: end;
-  justify-content: right;
-  background-color: rgb(240,240,240);
-  border-radius: 30px;
-  font-size: 40px;
-  flex-direction: column;
-  gap: 10px;
-  margin: 20px 0px 0px 0px;
+.main-div {
+    display: flex;
+    height: auto;
+    width: auto;
+    background-color: rgb(240,240,240);
+    border-radius: 30px;
+    font-size: 40px;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0px 0px 0px;
+}
+.main-ul {
+    font-size: 100%;
 }
 .main-ul li {
     list-style-type: none;
     display: flex;
-    justify-content: right;
+    
+}
+.low_div {
+    display: flex;
+    
+    
 }
 
 </style>
 <body background="pexels-robert-clark-504241532-20087252.jpg">
     <div class="main-div">
     <div style="margin: 20px;">      
-        <div style="display: flex;justify-content: right;">
-                :  متضمنا المعلومات التالية test@gmail.com يرجى ارسال ايميل الى عنوان التالي 
-            </div>
-            <ul class="main-ul">
-                <li > العنوان مدينة او قرية فقط   - </li>
-                <li>رقم التواصل   -</li>
-                <li>نوع العمل   - </li>
-                <li> الخبرة المطلوبة   - </li>
-                <li>اوقات الدوام   - </li>
+        <div id="low_div"  class="low_div">
+            <p>يرجى ارسال ايميل الى عنوان التالي</p> 
+            
+            <p><a href="mailto:alswaida.work@gmail.com">( alswaida.work@gmail.com )</a></p>
+            <p>متضمنا المعلومات التالية :</p>  
+            
+        </div>
+            <ul id ="main-ul" class="main-ul">
+                <li>-   العنوان مدينة او قرية فقط</li>
+                <li>-   رقم التواصل</li>
+                <li>-   نوع العمل</li>
+                <li>-   الخبرة المطلوبة</li>
+                <li>-   اوقات الدوام</li>
             </ul>
-        </div>  
+        
     </div>
-    
+    <script>
+        const q = document.getElementById("low_div");
+        const g = document.getElementById("main-ul");
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            q.style.fontSize = "20px"
+            g.style.fontSize = "20px"
+            q.style.flexDirection = "column"
+        };
+    </script>
 </body>
 </html>
