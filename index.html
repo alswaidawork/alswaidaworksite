@@ -106,7 +106,7 @@
             developed by Wajed Faraj
             </div>
         </div>
-        <div class="rubik-regular"  style="border-top:1px solid #333; margin-top:40px; padding-top:20px; color:var(--fonts); font-size:20px;font-family: 'Cairo',sans-serif; margin: 10px;font-size: 25px;">
+        <div style="border-top:1px solid #333; margin-top:40px; padding-top:20px; color:var(--fonts); font-size:25px; margin: 10p;">
                 منصة تحوي على العديد من فرص العمل بمختلف المجالات
         </div>
         <div style="font-size: 20px;">انت صاحب عمل و تريد ادراج اعلان , اضغط <a href="contact.html">هنا</a> </div>
@@ -114,73 +114,84 @@
     </div>
     <div id = "work-footer" style="background-color: var(--bac);display: none;height: 80px;align-items: center;margin:20px; justify-content: center;border-radius: 30px;
         ">
-    <b id ="aspect">عروض العمل المتعلقة  بالمجال 
+    <b id ="aspect">عروض العمل المتعلقة  بمجال 
     </b>
     </div>
     <div class="products-container" id="productsContainer"></div>
 
     </div>
-    <div id='divTwo' class="rubik-regular"  style="max-width:1300px; margin: 40px 0px 0px 0px;font-size: 35px;justify-content: right; align-items:top;gap:30px;border-radius: 30px 30px 0px 0px ;height: 50px;padding: 20px;background-color: var(--bac);display: flex;;">
-     قم باختيار التصنيف
-        <!-- <div style="font-size: 40px;display:flex;border-radius: 30px;justify-content:right;">
-            قم باختيار التصنيف
-        </div> -->
-     </div>
+    <div id='divTwo'  style="max-width:1300px; margin: 40px 0px 0px 0px;font-size: 35px;justify-content: right; align-items:top;gap:30px;border-radius: 30px 30px 0px 0px ;height: 50px;padding: 20px;background-color: var(--bac);display: flex;;">
+    قم باختيار المجال بناءً على  المهارة او الخبرة
+    </div>
     <div id='divThree' class="divThree">
 <form style="width: 600px;">
-        <select  id="category" style="width: 60% ;height: 50px;">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="S">S</option>
-        <option value="audi">Audi</option>
+        <select  id="category" style="width: 60% ;height: 50px;" >
+        <option value="" selected></option>
+        <option value="tech">التكنولوجيا</option>
+        <option value="free">أعمال حرة (بناء ,ميكانيك , نجارة ، حدادة . . )</option>
+        <option value="elec">كهرباء , الكترونيات , طاقة متجددة</option>
+        <option value="health">الصحة</option>
+        <option value="food">الطبخ و المأكولات</option>
+        <option value="manage" >إدارة أعمال , خدمات مكتبية</option>
+        <option value="salon">صالونات (تجميل , حلاقة , تاتو )</option>
+        <option value="teach">التعليم</option>
+        <option value="sport">الرياضة</option>
+        <option value="art">فنون / أعمال يدوية / التصميم</option>
+        <option value="no">بدون</option>
         </select>
 </form>
 
 </div>
     <script>
         //===============================================================================================================================
-
+        
         const products = 
-        [
         {
-            id: 1,
-            name: "اسم المنتج 1",
+        "S":[{
+            loc: "اسم المنتج 1",
             description: "وصف مختصر\n\r للمنتج هنا",
-            price: 299,
-            image: "https://via.placeholder.com/300x200?text=Product+1"
-        },
-        {
-            id: 2,
-            name: "اسم المنتج 2",
+            cont: 299,
+        }],
+        "saab":[{
+            loc: "اسم المنتج 2",
             description: "وصف  ىجثهصخللمنتج هنا",
-            price: 450,
-            image: ""
-        },
-        {},
-        {},
-        {},
-        {},
-        {}
-        // أضف باقي المنتجات هنا...
-        ];
+            cont: 450,
+        }],
+        teach:[
+
+        ],
+        };
         let aspect = document.getElementById("aspect")
         let dTwo = document.getElementById("divTwo")
         let dThree = document.getElementById("divThree")
-        let b = document.getElementById("category")
+        const b = document.getElementById("category")
         let workFooter=document.getElementById("work-footer")
+        // for (let i =0;i<10 ; i++) {
+        //     if (b.value == products[b.]) {
+        //         let y =products[i]
+        //     }
+        //     else {
+        //         continue ;
+        //     }
+        // }
         b.addEventListener('change' , () => {
+            const b = document.getElementById("category")
+            let y = products[b.value]
             dTwo.style.display = "none";
             dThree.style.display = "none";
             const container = document.getElementById('productsContainer');
             container.innerHTML = '';
-
-            products.forEach(product => {
+            document.getElementById("back-div").style.display = "flex"
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            dTwo.style.display = "block" ;
+        };
+            y.forEach(product => {
             const cardHTML = `
             <div class="product-card">
                 <div class="product-info">
-                <h3>${product.name}</h3>
+                <h3>${product.loc}</h3>
                 <p>${product.description}</p>
-                <a href="tel:${product.price}" class="price"> للتواصل ${product.price} </a>
+                <a href="tel:${product.cont}" class="price"> للتواصل ${product.cont} </a>
                 <!-- أضف هنا أي تفاصيل إضافية تريدها -->
                 </div>
             </div>
@@ -198,6 +209,12 @@
         
                 
     </script>
+    <div style="display: flex;justify-content: center;align-items: center;margin: 10px 0px 0px 0px;font-size: 25px;height: 80px; width: auto;border-radius: 30px;background-color: rgb(240,240,240,0);">
+        <div id="back-div"  style="display: none;justify-content: center;align-items: center;font-size: 25px;height: 80px; width: 80px;border-radius: 30px;background-color: rgb(240,240,240);">
+                    <a style="color: #551a8b;" href="javascript:location.reload()   ">رجوع</a>
+
+        </div>
+    </div>
 </body>
 
 </html>
